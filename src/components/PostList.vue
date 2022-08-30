@@ -1,12 +1,16 @@
 <template>
-  <div class="post" v-for="post in posts">
-    <div><strong>Название:</strong>{{ post.title }}</div>
-    <div><strong>Описание:</strong>{{ post.body }}</div>
+  <div v-if="posts.length > 0">
+    <h3>Список пользователей</h3>
+    <PostItem v-for="post in posts" :post="post" :key="post.id" @remove="$emit('remove', post)"/>
   </div>
+  <h2 v-else>Список постов пуст</h2>
 </template>
 
 <script>
+import PostItem from "@/components/PostItem";
 export default {
+  components: {PostItem},
+
   props: {
     posts: {
       type: Array,
