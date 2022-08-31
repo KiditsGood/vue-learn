@@ -1,6 +1,7 @@
 <template>
   <div>
-    <router-view></router-view>
+    <h1>Привет</h1>
+    <router-link to="/post_page">Клик</router-link>
   </div>
 </template>
 
